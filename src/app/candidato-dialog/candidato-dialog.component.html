@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>{{ data ? 'Editar Candidato' : 'Criar Candidato' }}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="candidatoForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="nome">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Número</mat-label>
+      <input matInput type="number" formControlName="numero">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>CPF</mat-label>
+      <input matInput formControlName="cpf">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Partido</mat-label>
+      <mat-select formControlName="partido">
+        <mat-option *ngFor="let partido of partidos" [value]="partido">
+          {{ partido.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button (click)="onSave()" [disabled]="!candidatoForm.valid">Salvar</button>
+</div>

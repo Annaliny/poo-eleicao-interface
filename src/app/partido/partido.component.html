@@ -1,0 +1,26 @@
+<div>
+  <h2>Partidos</h2>
+  <div>
+    <button mat-raised-button color="primary" (click)="criarPartido()">Criar Partido</button>
+    <button mat-raised-button color="accent" (click)="gravarPartidos('partidos')">Gravar Partidos</button>
+    <button mat-raised-button color="warn" (click)="recuperarPartidos('partidos')">Recuperar Partidos</button>
+  </div>
+
+  <mat-list style="margin-top: 20px;">
+    <mat-list-item *ngFor="let partido of partidos">
+      <div matLine style="display: flex; align-items: center; justify-content: space-between; margin-top: 20px;">
+        <div>
+          <strong>Nome: {{ partido.nome }}</strong> - Número: {{ partido.numero }} | CNPJ: {{ partido.cnpj }}
+        </div>
+        <div>
+          <button mat-icon-button (click)="editarPartido(partido)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="removerPartido(partido.nome)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-list-item>
+  </mat-list>
+</div>

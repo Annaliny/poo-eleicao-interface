@@ -1,0 +1,26 @@
+<div>
+  <h2>Candidatos</h2>
+  <div>
+    <button mat-raised-button color="primary" (click)="criarCandidato()">Criar Candidato</button>
+    <button mat-raised-button color="accent" (click)="gravarCandidatos()">Gravar Candidatos</button>
+    <button mat-raised-button color="warn" (click)="recuperarCandidatos()">Recuperar Candidatos</button>
+  </div>
+
+  <mat-list style="margin-top: 20px;">
+    <mat-list-item *ngFor="let candidato of candidatos">
+      <div matLine style="display: flex; align-items: center; justify-content: space-between; margin-top: 20px;">
+        <div>
+          <strong>Nome: {{ candidato.nome }}</strong> - Número: {{ candidato.numero }} | CPF: {{ candidato.cpf }} | Partido: {{ candidato?.partido?.nome }}
+        </div>
+        <div>
+          <button mat-icon-button (click)="editarCandidato(candidato)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="removerCandidato(candidato.nome)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-list-item>
+  </mat-list>
+</div>
